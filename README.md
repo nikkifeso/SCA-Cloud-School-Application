@@ -3,6 +3,10 @@
 This repository contains my solution to Exercise 2 of She Code Africa Cloud School - Technical Assessment
 It contains a script `main.py` which is a Command-line interface (CLI) application that installs the following softwares: wget, curl, Node.js.
 
+## Functionality
+
+The script checks the operating system of the user. It then checks if any of the software has been installed, if it hasn't, then it installs it using the appropriate commands.
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine. 
