@@ -29,15 +29,15 @@ def install_os():
 
     elif platform.system() == 'Windows':
         wget = requests.get("http://ftp.gnu.org/gnu/wget/wget-1.11.4.tar.gz")
-        with open(ROOT_DIR + "\\Users\\Downloads\\wget-1.11.4.tar.gz", "wb") as f:
+        with open(ROOT_DIR +"wget-1.11.4.tar.gz", "wb") as f:
             f.write(wget.content)
 
         curl = requests.get("https://curl.se/windows/dl-7.74.0_2/curl-7.74.0_2-win32-mingw.zip")
-        with open(ROOT_DIR + "\\Users\\Downloads\\curl-7.74.0_2-win32-mingw.zip", "wb") as f:
+        with open(ROOT_DIR + "curl-7.74.0_2-win32-mingw.zip", "wb") as f:
             f.write(curl.content)
 
         node = requests.get("https://nodejs.org/dist/v14.15.4/node-v14.15.4.tar.gz")
-        with open(ROOT_DIR + "Users\\Downloads\\node-v14.15.4.tar.gz", "wb") as f:
+        with open(ROOT_DIR + "node-v14.15.4.tar.gz", "wb") as f:
             f.write(node.content)
     else:
         print("Operating System Not Found")
