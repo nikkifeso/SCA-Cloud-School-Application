@@ -2,10 +2,8 @@
 
 import os
 import platform
-import requests
 
 software = ['wget', 'curl', 'node']
-ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 
 def install_os():
@@ -28,17 +26,12 @@ def install_os():
                 os.system(f"sudo apt-get install {item}")
 
     elif platform.system() == 'Windows':
-        wget = requests.get("http://ftp.gnu.org/gnu/wget/wget-1.11.4.tar.gz")
-        with open(ROOT_DIR +"wget-1.11.4.tar.gz", "wb") as f:
-            f.write(wget.content)
-
-        curl = requests.get("https://curl.se/windows/dl-7.74.0_2/curl-7.74.0_2-win32-mingw.zip")
-        with open(ROOT_DIR + "curl-7.74.0_2-win32-mingw.zip", "wb") as f:
-            f.write(curl.content)
-
-        node = requests.get("https://nodejs.org/dist/v14.15.4/node-v14.15.4.tar.gz")
-        with open(ROOT_DIR + "node-v14.15.4.tar.gz", "wb") as f:
-            f.write(node.content)
+        os.system("powershell.exe Set-ExecutionPolicy RemoteSigned -scope CurrentUser")
+        os.system("powershell.exe Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')")
+        for item in software:
+            if item == "node":
+                os.system(f"start /wait cmd /c scoop install nodejs")
+            os.system(f"start /wait cmd /c scoop install {item}")
     else:
         print("Operating System Not Found")
 
